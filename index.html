@@ -510,6 +510,14 @@
     <span id="toast-msg"></span>
 </div>
 
+<!-- Motion One — vanilla-JS animation library (Framer Motion family). https://motion.dev -->
+<script type="module">
+    import { animate, inView, stagger } from "https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm";
+    // Expose to non-module script.js
+    window.Motion = { animate, inView, stagger };
+    window.dispatchEvent(new Event("motion:ready"));
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>

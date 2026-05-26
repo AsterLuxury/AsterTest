@@ -831,3 +831,45 @@ renderGrid();
 updateFavCount();
 updateCartCount();
 renderCart();
+
+
+
+// ==========================================================
+// MOTION ONE — entrance animations (loaded via CDN in index.html)
+// ==========================================================
+window.addEventListener('motion:ready', () => {
+    if (!window.Motion) return;
+    const { animate, inView, stagger } = window.Motion;
+
+    // Hero headline — staggered word reveal
+    const heroWords = document.querySelectorAll('.hero-word');
+    if (heroWords.length) {
+        animate(
+            heroWords,
+            { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
+            { duration: 0.9, delay: stagger(0.08), easing: [0.16, 1, 0.3, 1] }
+        );
+    }
+
+    // Hero supporting elements — gentle fade-up
+    const heroSupport = document.querySelectorAll('.hero-tag, .hero-lede, .hero-actions');
+    if (heroSupport.length) {
+        animate(
+            heroSupport,
+            { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0px)'] },
+            { duration: 0.7, delay: stagger(0.1, { start: 0.4 }), easing: [0.16, 1, 0.3, 1] }
+        );
+    }
+
+    // Product cards — fade-up as they scroll into view (re-runs after filtering too)
+    const observeCards = () => {
+        inView('.card', (info) => {
+            animate(
+                info.target,
+                { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] },
+                { duration: 0.6, easing: [0.16, 1, 0.3, 1] }
+            );
+        }, { margin: '0px 0px -10% 0px' });
+    };
+    observeCards();
+});
