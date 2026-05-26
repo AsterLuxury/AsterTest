@@ -1,4 +1,63 @@
 /* ==========================================================
+   Tailwind v4 + shadcn/ui theme layer
+   ========================================================== */
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 25 12% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 12% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 12% 9%;
+    --primary: 32 39% 39%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 40 30% 92%;
+    --secondary-foreground: 25 12% 9%;
+    --muted-bg: 40 30% 92%;
+    --muted-foreground: 35 7% 47%;
+    --accent: 40 50% 65%;
+    --accent-foreground: 25 12% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 38 30% 84%;
+    --input: 38 30% 84%;
+    --ring: 32 39% 39%;
+    --radius: 0.875rem;
+  }
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted-bg));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/* ==========================================================
    ASTER LUXURY — 2026 Refined Edition
    ========================================================== */
 
@@ -33,9 +92,10 @@ ul { list-style: none; }
 
     --whatsapp: #25D366;
 
-    /* Typography */
-    --font-display: 'Fraunces', 'Cormorant Garamond', serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Typography — `--font-display` and `--font-sans` are set on <html> by
+       next/font/google (see app/layout.tsx). They include built-in fallback
+       stacks. Don't redeclare them here or the fallback stacks below would
+       override the next/font values. */
 
     /* Fluid sizes — clamp(min, ideal, max) */
     --fs-xs: 0.7rem;
