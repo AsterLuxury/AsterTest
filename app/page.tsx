@@ -41,6 +41,8 @@ export default function Home() {
       <MobileMenu />
       <CartDrawer />
 
+      <MFLanding />
+
       <main>
         <V2Hero />
         <V2Marquee />
