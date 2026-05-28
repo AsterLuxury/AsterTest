@@ -1,62 +1,61 @@
-import { LandingNav } from "@/components/landing/landing-nav";
-import { FeatureCards } from "@/components/landing/feature-cards";
-import { SocialProof } from "@/components/landing/social-proof";
-import { FeaturedCollections } from "@/components/landing/featured-collections";
-import { FAQ } from "@/components/landing/faq";
+import { V4Nav } from "@/components/landing-v4/v4-nav";
+import { V4Cover } from "@/components/landing-v4/v4-cover";
+import { V4Manifesto } from "@/components/landing-v4/v4-manifesto";
+import { V4Spread } from "@/components/landing-v4/v4-spread";
+import { V4Chapters } from "@/components/landing-v4/v4-chapters";
+import { V4Principles } from "@/components/landing-v4/v4-principles";
+import { V4FAQ } from "@/components/landing-v4/v4-faq";
+import { V4Footer } from "@/components/landing-v4/v4-footer";
 
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { ProgressBar } from "@/components/layout/progress-bar";
 import { FloatWhatsApp } from "@/components/layout/float-whatsapp";
 
-import { ParallaxHero } from "@/components/sections/parallax-hero";
-import { About } from "@/components/sections/about";
 import { Shop } from "@/components/sections/shop";
-import { Callout } from "@/components/sections/callout";
-import { Footer } from "@/components/sections/footer";
 
 import { CartDrawer } from "@/components/overlays/cart-drawer";
 import { ProductModal } from "@/components/overlays/product-modal";
 import { SearchOverlay } from "@/components/overlays/search-overlay";
 
 /**
- * Homepage — marketing-first landing flow on top, store underneath.
+ * Homepage — Mont Fort-style magazine layout (v4).
  *
- * Section order (top to bottom):
- *   1. Hero (parallax product imagery + headline + CTAs) → #home
- *   2. Features (3 cards)                                 → #features
- *   3. Social proof (stats + testimonials)                → #social
- *   4. Featured Collections / "pricing"                   → #collections
- *   5. Shop grid (existing)                               → #shop
- *   6. About / story                                      → #story
- *   7. FAQ                                                → #faq
- *   8. Callout                                            → (no anchor)
- *   9. Footer                                             → #contact
+ * Each panel is full-viewport. The page is meant to be scrolled
+ * through like a magazine, not browsed like a webpage.
  *
- * The overlays (cart, modal, search) and global chrome (mobile menu,
- * floating WA button, progress bar) live outside the main flow as
- * portal-style siblings.
+ *   1. V4Cover         full-bleed lifestyle cover image + headline
+ *   2. V4Manifesto     pure typographic page, single huge italic line
+ *   3. V4Spread        ink panel + lifestyle image, editorial quote
+ *   4. V4Chapters      horizontal scroll of 4 oversized image cards
+ *   5. V4Principles    typographic list of three statements
+ *   6. Shop            existing product grid (unchanged)
+ *   7. V4FAQ           index-style accordion
+ *   8. V4Footer        ink panel with massive italic stroked wordmark
+ *
+ * Editorial imagery (cover, spread, chapters) is from Unsplash —
+ * see components/landing-v4/imagery.ts for sources and credits.
+ * Real product imagery from the catalogue stays in <Shop /> below.
  */
 export default function Home() {
   return (
     <>
       <ProgressBar />
-      <LandingNav />
+      <V4Nav />
       <SearchOverlay />
       <MobileMenu />
       <CartDrawer />
 
       <main>
-        <ParallaxHero />
-        <FeatureCards />
-        <SocialProof />
-        <FeaturedCollections />
+        <V4Cover />
+        <V4Manifesto />
+        <V4Spread />
+        <V4Chapters />
+        <V4Principles />
         <Shop />
-        <About />
-        <FAQ />
-        <Callout />
+        <V4FAQ />
       </main>
 
-      <Footer />
+      <V4Footer />
       <FloatWhatsApp />
       <ProductModal />
     </>
