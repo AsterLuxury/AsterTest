@@ -2684,3 +2684,340 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+
+/* ==========================================================
+   LANDING PAGE — sections added in landing-page-redesign branch
+   ==========================================================
+   These classes back the components in components/landing/*.
+   Reuses the existing token system (--paper, --ink, --accent, etc.)
+   so the new sections feel native to the rest of the site. */
+
+/* ---- Landing nav ---- */
+/* Variant of the existing .header. Starts transparent over the hero
+   so the parallax imagery isn't fighting an opaque bar, then snaps
+   to the standard scrolled treatment once we pass the hero fold. */
+.header.landing-nav {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+}
+
+.header.landing-nav.scrolled {
+    background: color-mix(in oklab, var(--paper) 92%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom-color: var(--line);
+}
+
+/* Helper used by section headers in the landing flow so the section-label
+   pill can be centered. The existing rule uses default left-alignment. */
+.section-label.justify-center {
+    justify-content: center;
+}
+
+/* ---- Feature cards ---- */
+.feature-card {
+    position: relative;
+    padding: clamp(1.5rem, 2.8vw, 2.25rem);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--paper-warm);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.4s var(--ease),
+                border-color 0.4s var(--ease),
+                background 0.4s var(--ease);
+    will-change: transform;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-light);
+    background: color-mix(in oklab, var(--accent-bg) 35%, var(--paper));
+}
+
+.feature-card-glyph {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--paper);
+    color: var(--accent);
+    border: 1px solid var(--line);
+}
+
+.feature-card-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    letter-spacing: 0.05em;
+}
+
+/* ---- Social proof ---- */
+.stats-band {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+}
+
+.stats-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stats-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+}
+
+.stats-lbl {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(1.5rem, 2.8vw, 2rem);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    min-height: 100%;
+}
+
+.testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--paper-warm);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+/* ---- Featured collections / tiers ---- */
+.tier-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: clamp(1.5rem, 2.8vw, 2.25rem);
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    transition: transform 0.4s var(--ease),
+                border-color 0.4s var(--ease);
+}
+
+.tier-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-light);
+}
+
+.tier-card-highlight {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.4);
+}
+
+.tier-card-highlight .tier-card-eyebrow,
+.tier-card-highlight .tier-card-range {
+    color: var(--accent-light);
+}
+
+.tier-card-highlight h3 {
+    color: var(--paper) !important;
+}
+
+.tier-card-highlight .tier-card-list li {
+    color: color-mix(in oklab, var(--paper) 80%, transparent);
+}
+
+.tier-card-highlight .tier-card-list li span {
+    color: var(--accent-light);
+}
+
+.tier-card-highlight .cta {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.tier-card-highlight .cta::before {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-soft));
+}
+
+.tier-card-highlight .cta-arrow {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.tier-card-highlight .cta:hover {
+    color: var(--paper);
+}
+
+.tier-card-flag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 14px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: var(--r-pill);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.tier-card-preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    background: var(--bone);
+    margin-bottom: 4px;
+}
+
+.tier-card-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--ease);
+}
+
+.tier-card:hover .tier-card-preview img {
+    transform: scale(1.04);
+}
+
+.tier-card-head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tier-card-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.tier-card-range {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin: 0;
+}
+
+.tier-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.tier-card-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+.tier-card-list li span {
+    color: var(--accent);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+/* ---- FAQ accordion ---- */
+.faq-list {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--line);
+}
+
+.faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: clamp(1.25rem, 2vw, 1.5rem) 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    text-align: left;
+    transition: color 0.25s var(--ease);
+}
+
+.faq-trigger:hover {
+    color: var(--accent);
+}
+
+.faq-trigger-icon {
+    flex-shrink: 0;
+    color: var(--accent);
+}
+
+.faq-answer {
+    padding: 0 0 clamp(1.25rem, 2vw, 1.5rem) 0;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 56ch;
+}
+
+.faq-item.open .faq-trigger {
+    color: var(--accent);
+}
+
+/* ---- Reduced-motion safety: the inView/animate effects above set the
+   start state inline as opacity:0. If a user prefers reduced motion,
+   we bypass the entry animation by overriding back to fully visible. */
+@media (prefers-reduced-motion: reduce) {
+    [data-feature-card],
+    [data-stat],
+    [data-testimonial],
+    [data-tier] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
