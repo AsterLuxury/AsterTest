@@ -1,11 +1,10 @@
-import { V4Nav } from "@/components/landing-v4/v4-nav";
-import { V4Cover } from "@/components/landing-v4/v4-cover";
-import { V4Manifesto } from "@/components/landing-v4/v4-manifesto";
-import { V4Spread } from "@/components/landing-v4/v4-spread";
-import { V4Chapters } from "@/components/landing-v4/v4-chapters";
-import { V4Principles } from "@/components/landing-v4/v4-principles";
-import { V4FAQ } from "@/components/landing-v4/v4-faq";
-import { V4Footer } from "@/components/landing-v4/v4-footer";
+import { V2Nav } from "@/components/landing-v2/v2-nav";
+import { V2Hero } from "@/components/landing-v2/v2-hero";
+import { V2Marquee } from "@/components/landing-v2/v2-marquee";
+import { V2Features } from "@/components/landing-v2/v2-features";
+import { V2Collections } from "@/components/landing-v2/v2-collections";
+import { V2FAQ } from "@/components/landing-v2/v2-faq";
+import { V2Footer } from "@/components/landing-v2/v2-footer";
 
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { ProgressBar } from "@/components/layout/progress-bar";
@@ -18,44 +17,40 @@ import { ProductModal } from "@/components/overlays/product-modal";
 import { SearchOverlay } from "@/components/overlays/search-overlay";
 
 /**
- * Homepage — Mont Fort-style magazine layout (v4).
+ * Homepage — dark editorial luxury redesign.
  *
- * Each panel is full-viewport. The page is meant to be scrolled
- * through like a magazine, not browsed like a webpage.
+ * Section order (top to bottom):
+ *   1. V2Nav            sticky, transparent over hero, blurred bar after scroll
+ *   2. V2Hero           single statement piece + oversized headline + dual CTA
+ *   3. V2Marquee        infinite scrolling values band as social proof
+ *   4. V2Features       3 dark feature cards in a 1px-rule grid
+ *   5. V2Collections    3-tier "pricing" with full-bleed product imagery
+ *   6. Shop             existing shop grid (unchanged)
+ *   7. V2FAQ            sticky-heading + accordion list, gold rule between items
+ *   8. V2Footer         oversized stroked wordmark + 3 link columns
  *
- *   1. V4Cover         full-bleed lifestyle cover image + headline
- *   2. V4Manifesto     pure typographic page, single huge italic line
- *   3. V4Spread        ink panel + lifestyle image, editorial quote
- *   4. V4Chapters      horizontal scroll of 4 oversized image cards
- *   5. V4Principles    typographic list of three statements
- *   6. Shop            existing product grid (unchanged)
- *   7. V4FAQ           index-style accordion
- *   8. V4Footer        ink panel with massive italic stroked wordmark
- *
- * Editorial imagery (cover, spread, chapters) is from Unsplash —
- * see components/landing-v4/imagery.ts for sources and credits.
- * Real product imagery from the catalogue stays in <Shop /> below.
+ * Overlays (cart, modal, search) and chrome (mobile menu, progress bar,
+ * floating WA button) are unchanged from the previous version.
  */
 export default function Home() {
   return (
     <>
       <ProgressBar />
-      <V4Nav />
+      <V2Nav />
       <SearchOverlay />
       <MobileMenu />
       <CartDrawer />
 
       <main>
-        <V4Cover />
-        <V4Manifesto />
-        <V4Spread />
-        <V4Chapters />
-        <V4Principles />
+        <V2Hero />
+        <V2Marquee />
+        <V2Features />
+        <V2Collections />
         <Shop />
-        <V4FAQ />
+        <V2FAQ />
       </main>
 
-      <V4Footer />
+      <V2Footer />
       <FloatWhatsApp />
       <ProductModal />
     </>
