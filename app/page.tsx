@@ -1,11 +1,10 @@
-import { V3Nav } from "@/components/landing-v3/v3-nav";
-import { V3Hero } from "@/components/landing-v3/v3-hero";
-import { V3Marquee } from "@/components/landing-v3/v3-marquee";
-import { V3QuoteSpread } from "@/components/landing-v3/v3-quote-spread";
-import { V3Features } from "@/components/landing-v3/v3-features";
-import { V3CollectionsRail } from "@/components/landing-v3/v3-collections-rail";
-import { V3FAQ } from "@/components/landing-v3/v3-faq";
-import { V3Footer } from "@/components/landing-v3/v3-footer";
+import { V2Nav } from "@/components/landing-v2/v2-nav";
+import { V2Hero } from "@/components/landing-v2/v2-hero";
+import { V2Marquee } from "@/components/landing-v2/v2-marquee";
+import { V2Features } from "@/components/landing-v2/v2-features";
+import { V2Collections } from "@/components/landing-v2/v2-collections";
+import { V2FAQ } from "@/components/landing-v2/v2-faq";
+import { V2Footer } from "@/components/landing-v2/v2-footer";
 
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { ProgressBar } from "@/components/layout/progress-bar";
@@ -18,43 +17,40 @@ import { ProductModal } from "@/components/overlays/product-modal";
 import { SearchOverlay } from "@/components/overlays/search-overlay";
 
 /**
- * Homepage — Mont Fort-inspired editorial luxury redesign.
+ * Homepage — dark editorial luxury redesign.
  *
  * Section order (top to bottom):
- *   1. V3Nav              fixed, ghost over hero, blurred bone bar after scroll
- *   2. V3Hero             full-viewport split, oversized italic word-stack
- *                         on left, single statement piece on right
- *   3. V3Marquee          slow infinite italic-italic ribbon of values
- *   4. V3QuoteSpread      ink-on-bone editorial spread: image + single quote
- *   5. V3Features         three magazine-style numbered statements
- *   6. V3CollectionsRail  drag/scroll horizontal rail of full-bleed tiers
- *   7. Shop               existing shop grid (cart-aware, unchanged)
- *   8. V3FAQ              index-style accordion, gold rule between rows
- *   9. V3Footer           ink panel with stroked oversized wordmark
+ *   1. V2Nav            sticky, transparent over hero, blurred bar after scroll
+ *   2. V2Hero           single statement piece + oversized headline + dual CTA
+ *   3. V2Marquee        infinite scrolling values band as social proof
+ *   4. V2Features       3 dark feature cards in a 1px-rule grid
+ *   5. V2Collections    3-tier "pricing" with full-bleed product imagery
+ *   6. Shop             existing shop grid (unchanged)
+ *   7. V2FAQ            sticky-heading + accordion list, gold rule between items
+ *   8. V2Footer         oversized stroked wordmark + 3 link columns
  *
- * Existing chrome — overlays, mobile menu, progress bar, floating
- * WhatsApp — left untouched. They keep working in the new design.
+ * Overlays (cart, modal, search) and chrome (mobile menu, progress bar,
+ * floating WA button) are unchanged from the previous version.
  */
 export default function Home() {
   return (
     <>
       <ProgressBar />
-      <V3Nav />
+      <V2Nav />
       <SearchOverlay />
       <MobileMenu />
       <CartDrawer />
 
       <main>
-        <V3Hero />
-        <V3Marquee />
-        <V3QuoteSpread />
-        <V3Features />
-        <V3CollectionsRail />
+        <V2Hero />
+        <V2Marquee />
+        <V2Features />
+        <V2Collections />
         <Shop />
-        <V3FAQ />
+        <V2FAQ />
       </main>
 
-      <V3Footer />
+      <V2Footer />
       <FloatWhatsApp />
       <ProductModal />
     </>
